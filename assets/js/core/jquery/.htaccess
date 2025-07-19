@@ -1,0 +1,18 @@
+RewriteEngine On
+
+#Mencegah browsing folder
+Options -Indexes
+
+#pengalihan error
+ErrorDocument 402 /index.php
+ErrorDocument 403 /404.php
+ErrorDocument 404 /404.php
+ErrorDocument 500 /404.php
+
+ RewriteBase /
+
+ # add .html file extension
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.+)$ $1.html [L]
